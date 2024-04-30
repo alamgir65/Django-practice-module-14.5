@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h3>This is from model page</h3>
+
+
+{% if datas %}
+
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Roll</th>
+        <th scope="col">Name</th>
+        <th scope="col">Email</th>
+        <th scope="col">Registration</th>
+        <th scope="col">Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for data in datas %}
+      <tr>
+        <th scope="row">{{data.roll}} </th>
+        <td>{{data.name}} </td>
+        <td>{{data.email}} </td>
+        <td>{{data.registrant_id}} </td>
+        <td> <a class='btn btn-danger text-white' href="{% url 'Delete_studentt' data.roll %}">Delete</a> </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+
+
+{% else %}
+<h3>No Data is Available Here</h3>
+{% endif %}
+
+
+{% endblock %}
